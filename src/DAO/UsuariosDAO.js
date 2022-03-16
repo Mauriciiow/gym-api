@@ -15,13 +15,13 @@ class UsuariosDAO{
         })
     }
 
-    selectUsuario = (id, user)=>{
+    selectUsuario = (id)=>{
         return new Promise((resolve, reject)=>{
-            this.db.get('SELECT * FROM USUARIOS WHERE id=?', id, (err)=>{
+            this.db.get('SELECT * FROM USUARIOS WHERE id=?', id, (err, row)=>{
                 if(err){
                     reject ({"erro": err.message})
                 } else {
-                    resolve ({"Usuario": user})
+                    resolve ({"Usuario": row})
                 }
             })
         })
@@ -29,11 +29,12 @@ class UsuariosDAO{
 
     insertUsuario = (user)=>{
         return new Promise((resolve, reject)=>{
-            this.db.run('INSERT INTO USUARIOS VALUES (?, ?, ?, ?, ?, ?, ?, ?)', user.id, user.nome, user.idade, user.data_nascimento, user.cpf, user.telefone, user.email, user.senha, (err)=>{
+            this.db.run('INSERT INTO USUARIOS VALUES (?, ?, ?, ?, ?, ?, ?, ?)', user.id, user.NOME, user.IDADE, user.DATA_NASCIMENTO, user.CPF, user.TELEFONE, user.EMAIL, 
+            user.SENHA, (err)=>{
                 if(err){
                     reject ({"erro": err.message})
                 } else {
-                    resolve ({"Usuario": user})
+                    resolve ({"msg": "Usuario adicionado", "Usuario": user})
                 }
             })
         })
@@ -41,7 +42,8 @@ class UsuariosDAO{
 
     updatetUsuario = (user, id)=>{
         return new Promise((resolve, reject)=>{
-            this.db.run('UPDATE USUARIOS SET ? WHERE ID=?', user, id, (err)=>{
+            this.db.run('UPDATE USUARIOS SET NOME=?, IDADE=?, DATA_NASCIMENTO=?, CPF=?, TELEFONE=?, EMAIL=?, SENHA=? WHERE ID=?', user.NOME, user.IDADE, user.DATA_NASCIMENTO, user.CPF, user.TELEFONE, user.EMAIL, 
+            user.SENHA, id, (err)=>{
                 if(err){ 
                     reject ({"erro": err.message})
                 } else {
@@ -53,7 +55,7 @@ class UsuariosDAO{
 
     deletetUsuario = (id)=>{
         return new Promise((resolve, reject)=>{
-            this.db.run('UPDATE USUARIOS SET ? WHERE ID=?', user, id, (err)=>{
+            this.db.run('DELETE FROM USUARIOS WHERE ID=?', id, (err)=>{
                 if(err){ 
                     reject ({"erro": err.message})
                 } else {
