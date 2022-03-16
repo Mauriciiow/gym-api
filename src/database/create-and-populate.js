@@ -12,13 +12,13 @@ const db = new sqlite3.Database(filePath);
 const USUARIOS_SCHEMA = `
 CREATE TABLE IF NOT EXISTS "USUARIOS" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "NOME" varchar(64),
-    "IDADE" varchar(64),
-    "DATA_NASCIMENTO" varchar(64),
-    "CPF" varchar(64),
-    "TELEFONE" varchar(64),
-    "EMAIL" varchar(64),
-    "SENHA" varchar(64)
+    "NOME" TEXT,
+    "IDADE" INTEGER,
+    "DATA_NASCIMENTO" TEXT,
+    "CPF" INTEGER,
+    "TELEFONE" TEXT,
+    "EMAIL" TEXT,
+    "SENHA" TEXT
   );`;
 
 const ADD_USUARIOS_DATA = `
