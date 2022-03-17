@@ -29,8 +29,8 @@ class UsuariosDAO{
 
     insertUsuario = (user)=>{
         return new Promise((resolve, reject)=>{
-            this.db.run('INSERT INTO USUARIOS VALUES (?, ?, ?, ?, ?, ?, ?, ?)', user.id, user.NOME, user.IDADE, user.DATA_NASCIMENTO, user.CPF, user.TELEFONE, user.EMAIL, 
-            user.SENHA, (err)=>{
+            this.db.run('INSERT INTO USUARIOS (nome, idade, data_nascimento, cpf, telefone, email, senha) VALUES (?, ?, ?, ?, ?, ?, ?)', user.nome, user.idade, user.data_nascimento, user.cpf, user.telefone, user.email, 
+            user.senha, (err)=>{
                 if(err){
                     reject ({"erro": err.message})
                 } else {
@@ -42,12 +42,12 @@ class UsuariosDAO{
 
     updatetUsuario = (user, id)=>{
         return new Promise((resolve, reject)=>{
-            this.db.run('UPDATE USUARIOS SET NOME=?, IDADE=?, DATA_NASCIMENTO=?, CPF=?, TELEFONE=?, EMAIL=?, SENHA=? WHERE ID=?', user.NOME, user.IDADE, user.DATA_NASCIMENTO, user.CPF, user.TELEFONE, user.EMAIL, 
-            user.SENHA, id, (err)=>{
+            this.db.run('UPDATE USUARIOS SET NOME=?, IDADE=?, DATA_NASCIMENTO=?, CPF=?, TELEFONE=?, EMAIL=?, SENHA=? WHERE ID=?', user.nome, user.idade, user.data_nascimento, user.cpf, user.telefone, user.email,
+            user.senha, id, (err)=>{
                 if(err){ 
                     reject ({"erro": err.message})
                 } else {
-                    resolve ({"msg": "Usuario atualizado"})
+                    resolve ({"msg": `Usuario ${user.nome} atualizado`})
                 }
             })
         })
@@ -59,7 +59,7 @@ class UsuariosDAO{
                 if(err){ 
                     reject ({"erro": err.message})
                 } else {
-                    resolve ({"msg": "Usuario deletado"})
+                    resolve ({"msg": `Usuario de id ${id} deletado`})
                 }
             })
         })
