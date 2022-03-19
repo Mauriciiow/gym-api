@@ -55,14 +55,14 @@ Schema da resposta
 {
 	"Usuarios": [
 		{
-			"ID": <String>,
-			"NOME": <String>,
-			"IDADE": <String>,
-			"DATA_NASCIMENTO": <String>,
-			"CPF": <String>,
-			"TELEFONE": <String>,
-			"EMAIL": <String>,
-			"SENHA": <String>
+			"id": <String>,
+			"nome": <String>,
+			"idade": <String>,
+			"data_nascimento": <String>,
+			"cpf": <String>,
+			"telefone": <String>,
+			"email": <String>,
+			"senha": <String>
 		}
 	],
 	"erro": <Boleano>
@@ -77,14 +77,14 @@ Schema da resposta
 ```json
 {
 	"Usuario": {
-		"ID": <String>,
-		"NOME": <String>,
-		"IDADE": 23,
-		"DATA_NASCIMENTO": <String>,
-		"CPF": <String>,
-		"TELEFONE": <String>,
-		"EMAIL": <String>,
-		"SENHA": <String>
+		"id": <String>,
+		"nome": <String>,
+		"idade": 23,
+		"data_nascimento": <String>,
+		"cpf": <String>,
+		"telefone": <String>,
+		"email": <String>,
+		"senha": <String>
 	},
 	"erro": <Boleano>
 }
