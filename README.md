@@ -53,16 +53,16 @@ Schema da resposta
 
 ```json
 {
-	"Usuarios": [
+"Usuarios": [
 		{
-			"id": <String>,
-			"nome": <String>,
-			"idade": <String>,
-			"data_nascimento": <String>,
-			"cpf": <String>,
-			"telefone": <String>,
-			"email": <String>,
-			"senha": <String>
+		"id": <String>,
+		"nome": <String>,
+		"idade": <String>,
+		"data_nascimento": <String>,
+		"cpf": <String>,
+		"telefone": <String>,
+		"email": <String>,
+		"senha": <String>
 		}
 	],
 	"erro": <Boleano>
@@ -76,15 +76,15 @@ Schema da resposta
 
 ```json
 {
-	"Usuario": {
-		"id": <String>,
-		"nome": <String>,
-		"idade": 23,
-		"data_nascimento": <String>,
-		"cpf": <String>,
-		"telefone": <String>,
-		"email": <String>,
-		"senha": <String>
+"Usuario": {
+	"id": <String>,
+	"nome": <String>,
+	"idade": 23,
+	"data_nascimento": <String>,
+	"cpf": <String>,
+	"telefone": <String>,
+	"email": <String>,
+	"senha": <String>
 	},
 	"erro": <Boleano>
 }
@@ -96,13 +96,13 @@ Schema da requisição
 
 ```json
 {
-		"nome": <String>,
-		"idade": <String>,
-		"data_nascimento": <String>,
-		"cpf": <String>,
-		"telefone": <String>,
-		"email": <String>,
-		"senha": <String>
+	"nome": <String>,
+	"idade": <String>,
+	"data_nascimento": <String>,
+	"cpf": <String>,
+	"telefone": <String>,
+	"email": <String>,
+	"senha": <String>
 }
 ```
 
@@ -110,15 +110,15 @@ Schema da resposta
 
 ```json
 {
-	"mensagem": <String>,
-	"Usuario": {
-		"nome": <String>,
-		"idade": <String>,
-		"data_nascimento": <String>,
-		"cpf": <String>,
-		"telefone": <String>,
-		"email": <String>,
-		"senha": <String>
+"mensagem": <String>,
+"Usuario": {
+	"nome": <String>,
+	"idade": <String>,
+	"data_nascimento": <String>,
+	"cpf": <String>,
+	"telefone": <String>,
+	"email": <String>,
+	"senha": <String>
 	},
 	"erro": <Boleano>
 }
@@ -130,13 +130,13 @@ Schema da requisição
 
 ```json
 {
-		"nome": <String>,
-		"idade": <String>,
-		"data_nascimento": <String>,
-		"cpf": <String>,
-		"telefone": <String>,
-		"email": <String>,
-		"senha": <String>
+	"nome": <String>,
+	"idade": <String>,
+	"data_nascimento": <String>,
+	"cpf": <String>,
+	"telefone": <String>,
+	"email": <String>,
+	"senha": <String>
 }
 ```
 
@@ -144,15 +144,15 @@ Schema da resposta
 
 ```json
 {
-	"mensagem": <String>,
-	"Usuario": {
-		"nome": <String>,
-		"idade": <String>,
-		"data_nascimento": <String>,
-		"cpf": <String>,
-		"telefone": <String>,
-		"email": <String>,
-		"senha": <String>
+"mensagem": <String>,
+"Usuario": {
+	"nome": <String>,
+	"idade": <String>,
+	"data_nascimento": <String>,
+	"cpf": <String>,
+	"telefone": <String>,
+	"email": <String>,
+	"senha": <String>
 	},
 	"erro": <Boleano>
 }
@@ -164,7 +164,7 @@ Schema da resposta
 
 ```json
 {
-	"mensagem": <String>,
+    "mensagem": <String>,
 	"erro": <Boleano>
 }
 ```
