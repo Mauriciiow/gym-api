@@ -21,7 +21,7 @@ class UsuariosDAO{
                 if(err){
                     reject ({"mensagem": err.message})
                 } else {
-                    resolve ({"Usuario": row})
+                    resolve ({"Usuario": row, "erro": false})
                 }
             })
         })
@@ -34,7 +34,7 @@ class UsuariosDAO{
                 if(err){
                     reject ({"mensagem": err.message})
                 } else {
-                    resolve ({"mensagem": "Usuario adicionado", "Usuario": user})
+                    resolve ({"mensagem": "Usuario adicionado", "Usuario": user, "erro": false})
                 }
             })
         })
@@ -47,7 +47,7 @@ class UsuariosDAO{
                 if(err){ 
                     reject ({"mensagem": err.message})
                 } else {
-                    resolve ({"mensagem": `Usuario ${user.nome} atualizado`})
+                    resolve ({"mensagem": `Usuario atualizado`, "Usuario": user, "erro": false})
                 }
             })
         })
@@ -59,7 +59,7 @@ class UsuariosDAO{
                 if(err){ 
                     reject ({"mensagem": err.message})
                 } else {
-                    resolve ({"mensagem": `Usuario de id ${id} deletado`})
+                    resolve ({"mensagem": `Usuario de id ${id} deletado`, "erro": false})
                 }
             })
         })
