@@ -169,9 +169,8 @@ Schema da resposta
 }
 ```
 ---
-## Rodando teste
-Para rodar os teste, utilizando o framework Jest e o Supertest basta rodar o comando abaixo:
-npm test
+## Rodando testes
+Para rodar os testes, utilizando o framework [`Jest`](https://jestjs.io/pt-BR/docs/testing-frameworks#expressjs) e o Supertest basta rodar o comando abaixo:
 
 ```
 npm test
