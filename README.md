@@ -63,7 +63,7 @@ Schema da resposta
    "telefone": <String>,
    "email": <String>,
    "senha": <String>
-	}
+  }
  ],
   "erro": <Boleano>
 }
