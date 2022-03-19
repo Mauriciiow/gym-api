@@ -30,7 +30,7 @@ git clone https://github.com/Mauriciiow/gym-api.git
 
 ```bash
 # Entrar no diretório
-cd gym-API
+cd gym-api
 ```
 
 ```bash
