@@ -170,7 +170,7 @@ Schema da resposta
 ```
 ---
 ## Rodando testes
-Para rodar os testes, utilizando o framework [`Jest`](https://jestjs.io/pt-BR/docs/testing-frameworks#expressjs) e o Supertest basta rodar o comando abaixo:
+Para rodar os testes, utilizando o framework [`Jest`](https://jestjs.io/pt-BR/docs/testing-frameworks#expressjs) e o `Supertest` basta rodar o comando abaixo:
 
 ```
 npm test
