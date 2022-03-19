@@ -168,3 +168,11 @@ Schema da resposta
    "erro": <Boleano>
 }
 ```
+---
+## Rodando teste
+Para rodar os teste, utilizando o framework Jest e o Supertest basta rodar o comando abaixo:
+npm test
+
+```
+npm test
+```
