@@ -23,8 +23,6 @@ Esse projeto tem como objetivo criar uma API RESTful de uma academia, onde será
 # Instalação da Aplicação
 Abra o terminal/Powershell e rode os comandos abaixo:
 
-Clonando o repositório:
-
 ```bash
 # Clonar o repositório
 git clone https://github.com/Mauriciiow/gym-api.git
