@@ -42,7 +42,7 @@ class UsuariosDAO{
 
     updatetUsuario = (user, id)=>{
         return new Promise((resolve, reject)=>{
-            this.db.run('UPDATE USUARIOS SET NOME=?, IDADE=?, DATA_NASCIMENTO=?, CPF=?, TELEFONE=?, EMAIL=?, SENHA=? WHERE ID=?', user.nome, user.idade, user.data_nascimento, user.cpf, user.telefone, user.email,
+            this.db.run('UPDATE USUARIOS SET nome=?, idade=?, data_nascimento=?, cpf=?, telefone=?, email=?, senha=? WHERE id=?', user.nome, user.idade, user.data_nascimento, user.cpf, user.telefone, user.email,
             user.senha, id, (err)=>{
                 if(err){ 
                     reject ({"mensagem": err.message})
