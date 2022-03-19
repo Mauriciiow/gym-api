@@ -1,6 +1,6 @@
 # 🏋🏽**Gym_Api**
 
-Projeto Módulo 4 Resilia - API REST para uma academia com a entidade Usuários
+Projeto Módulo 4 Resilia - API REST para uma academia utilizando a entidade Usuários
 
 Projeto realizado utilizando o [Node.js](https://nodejs.org/en/) com framework [Express](https://expressjs.com).
 
