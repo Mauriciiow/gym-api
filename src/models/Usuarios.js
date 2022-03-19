@@ -43,21 +43,21 @@ class UsuariosModel{
      }
 
      _validaTel= (tel)=>{
-        if (tel == null || tel.length < 11) {
+        if (tel == null || String(tel).length < 11) {
           throw new Error('Digite um telefone valido')
         }
         return tel
      }
 
      _validaIdade= (idade)=>{
-        if (idade == null) {
+        if (idade == null || String(idade).length == 0) {
           throw new Error('Digite uma idade valida')
         }
         return idade
      }
 
      _validaDataNull= (data)=>{
-        if (data == null) {
+        if (data == null || String(data).length == 0) {
           throw new Error('Digite uma data valida')
         }
         return data
