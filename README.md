@@ -96,13 +96,13 @@ Schema da requisição
 
 ```json
 {
-	"nome": <String>,
-	"idade": <String>,
-	"data_nascimento": <String>,
-	"cpf": <String>,
-	"telefone": <String>,
-	"email": <String>,
-	"senha": <String>
+"nome": <String>,
+"idade": <String>,
+"data_nascimento": <String>,
+"cpf": <String>,
+"telefone": <String>,
+"email": <String>,
+"senha": <String>
 }
 ```
 
@@ -130,13 +130,13 @@ Schema da requisição
 
 ```json
 {
-	"nome": <String>,
-	"idade": <String>,
-	"data_nascimento": <String>,
-	"cpf": <String>,
-	"telefone": <String>,
-	"email": <String>,
-	"senha": <String>
+"nome": <String>,
+"idade": <String>,
+"data_nascimento": <String>,
+"cpf": <String>,
+"telefone": <String>,
+"email": <String>,
+"senha": <String>
 }
 ```
 
