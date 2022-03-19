@@ -64,8 +64,8 @@ Schema da resposta
 	"email": <String>,
 	"senha": <String>
 	}
-	],
-	"erro": <Boleano>
+],
+"erro": <Boleano>
 }
 ```
 
@@ -85,8 +85,8 @@ Schema da resposta
 	"telefone": <String>,
 	"email": <String>,
 	"senha": <String>
-	},
-	"erro": <Boleano>
+},
+"erro": <Boleano>
 }
 ```
 
@@ -119,8 +119,8 @@ Schema da resposta
 	"telefone": <String>,
 	"email": <String>,
 	"senha": <String>
-	},
-	"erro": <Boleano>
+},
+"erro": <Boleano>
 }
 ```
 
@@ -153,8 +153,8 @@ Schema da resposta
 	"telefone": <String>,
 	"email": <String>,
 	"senha": <String>
-	},
-	"erro": <Boleano>
+},
+"erro": <Boleano>
 }
 ```
 
@@ -164,7 +164,7 @@ Schema da resposta
 
 ```json
 {
-    "mensagem": <String>,
-	"erro": <Boleano>
+   "mensagem": <String>,
+   "erro": <Boleano>
 }
 ```
