@@ -168,3 +168,12 @@ Schema da resposta
    "erro": <Boleano>
 }
 ```
+
+---
+# Rodando teste
+Para rodar os teste, utilizando o framework [`Jest`](https://jestjs.io/pt-BR/docs/testing-frameworks#expressjs) e o `Supertest` basta rodar o comando abaixo:
+npm test
+
+```
+npm test
+```
