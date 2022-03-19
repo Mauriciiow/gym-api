@@ -19,7 +19,7 @@ class UsuariosDAO{
         return new Promise((resolve, reject)=>{
             this.db.get('SELECT * FROM USUARIOS WHERE id=?', id, (err, row)=>{
                 if(err){
-                    reject ({"erro": err.message})
+                    reject ({"mensagem": err.message})
                 } else {
                     resolve ({"Usuario": row})
                 }
@@ -32,9 +32,9 @@ class UsuariosDAO{
             this.db.run('INSERT INTO USUARIOS (nome, idade, data_nascimento, cpf, telefone, email, senha) VALUES (?, ?, ?, ?, ?, ?, ?)', user.nome, user.idade, user.data_nascimento, user.cpf, user.telefone, user.email, 
             user.senha, (err)=>{
                 if(err){
-                    reject ({"erro": err.message})
+                    reject ({"mensagem": err.message})
                 } else {
-                    resolve ({"msg": "Usuario adicionado", "Usuario": user})
+                    resolve ({"mensagem": "Usuario adicionado", "Usuario": user})
                 }
             })
         })
@@ -45,9 +45,9 @@ class UsuariosDAO{
             this.db.run('UPDATE USUARIOS SET NOME=?, IDADE=?, DATA_NASCIMENTO=?, CPF=?, TELEFONE=?, EMAIL=?, SENHA=? WHERE ID=?', user.nome, user.idade, user.data_nascimento, user.cpf, user.telefone, user.email,
             user.senha, id, (err)=>{
                 if(err){ 
-                    reject ({"erro": err.message})
+                    reject ({"mensagem": err.message})
                 } else {
-                    resolve ({"msg": `Usuario ${user.nome} atualizado`})
+                    resolve ({"mensagem": `Usuario ${user.nome} atualizado`})
                 }
             })
         })
@@ -57,9 +57,9 @@ class UsuariosDAO{
         return new Promise((resolve, reject)=>{
             this.db.run('DELETE FROM USUARIOS WHERE ID=?', id, (err)=>{
                 if(err){ 
-                    reject ({"erro": err.message})
+                    reject ({"mensagem": err.message})
                 } else {
-                    resolve ({"msg": `Usuario de id ${id} deletado`})
+                    resolve ({"mensagem": `Usuario de id ${id} deletado`})
                 }
             })
         })
@@ -68,7 +68,7 @@ class UsuariosDAO{
     _verificaId = async (id)=>{
         const usuario = await this.selectUsuario(id)
         if (usuario.Usuario === undefined ) { 
-            throw new Error(`Usuario de ${id} nao existe`)
+            throw new Error(`Usuario de id ${id} nao existe`)
             
         }
         return usuario

@@ -9,8 +9,5 @@ app.use(express.json());
 
 usuariosController(app, bd)
 
-app.listen(port, ()=>{
-    console.log(`Server ligado na porta ${port} http://localhost:${port}/`);
- 
-})
 
+export default app

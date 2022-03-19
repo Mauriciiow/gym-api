@@ -9,7 +9,8 @@ const usuarioDAO = new UsuariosDAO(db)
             const usuarios = await usuarioDAO.selectUsuarios()
             res.status(200).json(usuarios)
         } catch (error) {
-            res.status(400).json({"mensagem": error.message})
+            res.status(400).json({"mensagem": error.message,
+            "erro": true})
         }
     })
 
@@ -21,7 +22,8 @@ const usuarioDAO = new UsuariosDAO(db)
             const usuario = await usuarioDAO.selectUsuario(id)
             res.status(302).json(usuario)
         } catch (error) {
-            res.status(404).json({"mensagem": error.message})
+            res.status(404).json({"mensagem": error.message,
+            "erro": true})
             
         }
     })
@@ -34,7 +36,8 @@ const usuarioDAO = new UsuariosDAO(db)
           const usuarioInserido = await usuarioDAO.insertUsuario(usuario)
            res.status(201).json(usuarioInserido)
         } catch (error) {
-            res.status(400).json({"msg": error.message})
+            res.status(400).json({"mensagem": error.message,
+            "erro": true})
         }
       
     })
@@ -44,11 +47,13 @@ const usuarioDAO = new UsuariosDAO(db)
         const id = req.params.id
        
         try {
+            await usuarioDAO._verificaId(id)
             const usuario = new UsuariosModel(body.nome, body.idade, body.data_nascimento, body.cpf, body.telefone, body.email, body.senha)
             const usuarioAtualizado = await usuarioDAO.updatetUsuario(usuario, id)
             res.status(200).json(usuarioAtualizado)
         } catch (error) {
-            res.status(400).json({"msg": error.message})
+            res.status(400).json({"mensagem": error.message,
+            "erro": true})
         }
     })
 
@@ -60,7 +65,8 @@ const usuarioDAO = new UsuariosDAO(db)
          const usuarioDeletado = await usuarioDAO.deletetUsuario(id)
           res.status(202).json(usuarioDeletado)
         } catch (error) {
-            res.status(400).json({"msg": error.message})
+            res.status(400).json({"mensagem": error.message,
+            "erro": true})
             
         } 
     })
