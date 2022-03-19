@@ -65,6 +65,15 @@ class UsuariosDAO{
         })
     }
 
+    _verificaId = async (id)=>{
+        const usuario = await this.selectUsuario(id)
+        if (usuario.Usuario === undefined ) { 
+            throw new Error(`Usuario de ${id} nao existe`)
+            
+        }
+        return usuario
+    }
+
 
 }
 
