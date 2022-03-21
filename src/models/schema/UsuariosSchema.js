@@ -44,7 +44,7 @@ class UsuariosSchema{
 
      _validaTel= (tel)=>{
         if (tel == null || String(tel).length < 11) {
-          throw new Error('Digite um telefone válido')
+          throw new Error('Digite um telefone valido')
         }
         return tel
      }
@@ -62,6 +62,7 @@ class UsuariosSchema{
         }
         return data
      }
+
 }
 
 export default UsuariosSchema
