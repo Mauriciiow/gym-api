@@ -17,7 +17,7 @@ const usuariosoModel = new UsuariosModel(db)
 
         try {
             const usuario = await usuariosoModel.pegaUmUsuario(id)
-            res.status(302).json({"Usuarios": usuario, "erro": false})
+            res.status(302).json({"Usuario": usuario, "erro": false})
         } catch (error) {
             res.status(404).json({"mensagem": error.message, "erro": true})
             
