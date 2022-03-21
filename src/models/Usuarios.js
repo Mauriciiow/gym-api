@@ -1,5 +1,5 @@
 import UsuariosDAO from '../DAO/UsuariosDAO.js'
-import UsuariosSchema from './schema/UsuarioSchema.js'
+import UsuariosSchema from './schema/UsuariosSchema.js'
 
 class UsuariosModel{
   constructor(db){
