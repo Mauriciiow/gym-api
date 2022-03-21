@@ -1,16 +1,13 @@
-import UsuariosDAO from "../DAO/UsuariosDAO.js"
-import UsuariosModel from "../models/Usuarios.js"
+import Usuarios from '../models/Usuarios.js'
 
 const usuariosController = (app, db)=>{
-const usuarioDAO = new UsuariosDAO(db)
+const UsuariosModel = new Usuarios(db)
     app.get('/usuarios', async (req, res)=>{
-        
         try {
-            const usuarios = await usuarioDAO.selectUsuarios()
-            res.status(200).json(usuarios)
+            const usuarios = await UsuariosModel.pegaTodosUsuarios()
+            res.status(200).json({"Usuarios": usuarios, "erro": false})
         } catch (error) {
-            res.status(400).json({"mensagem": error.message,
-            "erro": true})
+            res.status(400).json({"mensagem": error.message, "erro": true})
         }
     })
 
@@ -18,12 +15,10 @@ const usuarioDAO = new UsuariosDAO(db)
         const id = req.params.id
 
         try {
-            await usuarioDAO._verificaId(id)
-            const usuario = await usuarioDAO.selectUsuario(id)
-            res.status(302).json(usuario)
+            const usuario = await UsuariosModel.pegaUmUsuario(id)
+            res.status(302).json({"Usuario": usuario, "erro": false})
         } catch (error) {
-            res.status(404).json({"mensagem": error.message,
-            "erro": true})
+            res.status(404).json({"mensagem": error.message, "erro": true})
             
         }
     })
@@ -32,12 +27,10 @@ const usuarioDAO = new UsuariosDAO(db)
         const body = req.body   
 
         try {
-          const usuario = new UsuariosModel(body.nome, body.idade, body.data_nascimento, body.cpf, body.telefone, body.email, body.senha)
-          const usuarioInserido = await usuarioDAO.insertUsuario(usuario)
-           res.status(201).json(usuarioInserido)
+          const usuarioInserido = await UsuariosModel.insereUsuario(body)
+           res.status(201).json({"mensagem": usuarioInserido, "Usuario": body, "erro": false})
         } catch (error) {
-            res.status(400).json({"mensagem": error.message,
-            "erro": true})
+            res.status(400).json({"mensagem": error.message, "erro": true})
         }
       
     })
@@ -47,26 +40,22 @@ const usuarioDAO = new UsuariosDAO(db)
         const id = req.params.id
        
         try {
-            await usuarioDAO._verificaId(id)
-            const usuario = new UsuariosModel(body.nome, body.idade, body.data_nascimento, body.cpf, body.telefone, body.email, body.senha)
-            const usuarioAtualizado = await usuarioDAO.updatetUsuario(usuario, id)
-            res.status(200).json(usuarioAtualizado)
+            const usuarioAtualizado = await UsuariosModel.atualizaUsuario(id, body)
+            res.status(200).json({"mensagem": usuarioAtualizado, "erro": false})
         } catch (error) {
-            res.status(400).json({"mensagem": error.message,
-            "erro": true})
+            res.status(400).json({"mensagem": error.message, "erro": true})
         }
     })
 
     app.delete('/usuario/id/:id', async (req, res)=>{
         const id = req.params.id
-
+        
         try {
-         await usuarioDAO._verificaId(id)
-         const usuarioDeletado = await usuarioDAO.deletetUsuario(id)
-          res.status(202).json(usuarioDeletado)
+         await UsuariosModel._verificaId(id)
+         const usuarioDeletado = await UsuariosModel.deletaUsuario(id)
+          res.status(202).json({"mensagem": usuarioDeletado, "erro": false})
         } catch (error) {
-            res.status(400).json({"mensagem": error.message,
-            "erro": true})
+            res.status(400).json({"mensagem": error.message, "erro": true})
             
         } 
     })

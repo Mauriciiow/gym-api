@@ -3,77 +3,67 @@ class UsuariosDAO{
         this.db = db
     }
 
-    selectUsuarios = ()=>{
+    pegaTodosUsuarios = ()=>{
         return new Promise((resolve, reject)=>{
             this.db.all('SELECT * FROM USUARIOS', (err, row)=>{
                 if(err){
-                    reject ({"erro": err.message})
+                    reject (err)
                 } else {
-                    resolve ({"Usuarios": row, "erro": false})
+                    resolve (row)
                 }
             })
         })
     }
 
-    selectUsuario = (id)=>{
+    pegaUmUsuario = (id)=>{
         return new Promise((resolve, reject)=>{
             this.db.get('SELECT * FROM USUARIOS WHERE id=?', id, (err, row)=>{
                 if(err){
-                    reject ({"mensagem": err.message})
+                    reject (err)
                 } else {
-                    resolve ({"Usuario": row, "erro": false})
+                    resolve (row)
                 }
             })
         })
     }
 
-    insertUsuario = (user)=>{
+    insereUsuario = (usuario)=>{
         return new Promise((resolve, reject)=>{
-            this.db.run('INSERT INTO USUARIOS (nome, idade, data_nascimento, cpf, telefone, email, senha) VALUES (?, ?, ?, ?, ?, ?, ?)', user.nome, user.idade, user.data_nascimento, user.cpf, user.telefone, user.email, 
-            user.senha, (err)=>{
+            this.db.run('INSERT INTO USUARIOS (nome, idade, data_nascimento, cpf, telefone, email, senha) VALUES (?, ?, ?, ?, ?, ?, ?)', usuario.nome, usuario.idade, usuario.data_nascimento, usuario.cpf, usuario.telefone, usuario.email, 
+            usuario.senha, (err)=>{
                 if(err){
-                    reject ({"mensagem": err.message})
+                    reject (err)
                 } else {
-                    resolve ({"mensagem": "Usuario adicionado", "Usuario": user, "erro": false})
+                    resolve (`Usuário ${usuario.nome} inserido com sucesso`)
                 }
             })
         })
     }
 
-    updatetUsuario = (user, id)=>{
+    atualizaUsuario = (usuario, id)=>{
         return new Promise((resolve, reject)=>{
-            this.db.run('UPDATE USUARIOS SET nome=?, idade=?, data_nascimento=?, cpf=?, telefone=?, email=?, senha=? WHERE id=?', user.nome, user.idade, user.data_nascimento, user.cpf, user.telefone, user.email,
-            user.senha, id, (err)=>{
+            this.db.run('UPDATE USUARIOS SET nome=?, idade=?, data_nascimento=?, cpf=?, telefone=?, email=?, senha=? WHERE id=?', usuario.nome, usuario.idade, usuario.data_nascimento, usuario.cpf, usuario.telefone, usuario.email,
+            usuario.senha, id, (err)=>{
                 if(err){ 
-                    reject ({"mensagem": err.message})
+                    reject (err)
                 } else {
-                    resolve ({"mensagem": `Usuario atualizado`, "Usuario": user, "erro": false})
+                    resolve (`Usuário de id ${id} atualizado com sucesso com sucesso`)
                 }
             })
         })
     }
 
-    deletetUsuario = (id)=>{
+    deletatUsuario = (id)=>{
         return new Promise((resolve, reject)=>{
             this.db.run('DELETE FROM USUARIOS WHERE ID=?', id, (err)=>{
                 if(err){ 
-                    reject ({"mensagem": err.message})
+                    reject (err)
                 } else {
-                    resolve ({"mensagem": `Usuario de id ${id} deletado`, "erro": false})
+                    resolve (`Usário de id ${id} deletado`)
                 }
             })
         })
     }
-
-    _verificaId = async (id)=>{
-        const usuario = await this.selectUsuario(id)
-        if (usuario.Usuario === undefined ) { 
-            throw new Error(`Usuario de id ${id} nao existe`)
-            
-        }
-        return usuario
-    }
-
 
 }
 

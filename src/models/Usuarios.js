@@ -1,71 +1,65 @@
-class UsuariosModel{
-    constructor(nome, idade, data_nascimento, cpf, telefone, email, senha){
-        this.nome = this._validaNome(nome)
-        this.idade = this._validaIdade(idade)
-        this.data_nascimento = this._validaDataNull(data_nascimento)
-        this.cpf = this._validaCpf(cpf)
-        this.telefone = this._validaTel(telefone)
-        this.email = this._validaEmail(email)
-        this.senha = this._validaSenha(senha)
+import UsuariosDAO from '../DAO/UsuariosDAO.js'
+import UsuarioSchema from './schema/UsuariosSchema.js'
+
+class Usuarios{
+  constructor(db){
+      this.dao = new UsuariosDAO(db)
+  }
+
+  pegaTodosUsuarios = async ()=>{
+      try {
+          return await this.dao.pegaTodosUsuarios()
+      } catch (error) {
+          throw error
+      }
+  }
+
+  pegaUmUsuario = async (id)=>{
+      try {
+         await this._verificaId(id)
+          return await this.dao.pegaUmUsuario(id)
+      } catch (error) {
+          throw error
+      }
+  }
+
+  insereUsuario = async (user)=>{
+      try {
+          const novoUsuario = new UsuarioSchema(user.nome, user.idade, user.data_nascimento, user.cpf, user.telefone, user.email, 
+            user.senha)
+          return await this.dao.insereUsuario(novoUsuario)
+      } catch (error) {
+          throw error
+      }
+  }
+
+  deletaUsuario = async (id)=>{
+      try {
+          await this._verificaId(id)
+          return await this.dao.deletatUsuario(id)
+      } catch (error) {
+          throw error
+      }
+  }
+
+  atualizaUsuario = async (id, usuario)=>{
+      try {
+          await this._verificaId(id)
+          const usuarioAtualizado = new UsuarioSchema(usuario.nome, usuario.idade, usuario.data_nascimento, usuario.cpf, usuario.telefone, usuario.email, 
+            usuario.senha)
+          return await this.dao.atualizaUsuario(usuarioAtualizado, id)
+      } catch (error) {
+          throw error
+      }
+  }
+
+  _verificaId = async (id)=>{
+    const usuario = await this.dao.pegaUmUsuario(id)
+    if (usuario === undefined) { 
+        throw new Error(`Usuário de id ${id} nao existe`) 
     }
-
-  
-    _validaSenha = (senha)=>{
-        if (senha == null || senha.length < 8) {
-            throw new Error('Digite uma sennha com pelo menos pelo menos 8 digitos')
-           
-        } 
-        return senha
-    }
-
-    _validaEmail = (email)=>{
-        let re = /\S+@\S+\.\S+/
-
-        if (email != null && re.test(email)) {
-            return email
-        }
-        throw new Error('Digite um email valido')
-    }
-
-    _validaNome= (nome)=>{
-       if (nome == null || nome.length == 0) {
-         throw new Error('Digite um nome valido')
-       }
-       return nome
-    }
-
-    _validaCpf= (cpf)=>{
-        if (cpf == null || String(cpf).length < 11) {
-            
-          throw new Error('Digite um cpf valido')
-        }
-        return cpf
-     }
-
-     _validaTel= (tel)=>{
-        if (tel == null || String(tel).length < 11) {
-          throw new Error('Digite um telefone valido')
-        }
-        return tel
-     }
-
-     _validaIdade= (idade)=>{
-        if (idade == null || String(idade).length == 0) {
-          throw new Error('Digite uma idade valida')
-        }
-        return idade
-     }
-
-     _validaDataNull= (data)=>{
-        if (data == null || String(data).length == 0) {
-          throw new Error('Digite uma data valida')
-        }
-        return data
-     }
-
-
-
-
+    return usuario
+}
 }
 
-export default UsuariosModel
+export default Usuarios
