@@ -18,13 +18,18 @@ CREATE TABLE IF NOT EXISTS "USUARIOS" (
     "cpf" INTEGER,
     "telefone" TEXT,
     "email" TEXT,
-    "senha" TEXT
+    "senha" TEXT,
+    "treino_id" INTEGER,
+    "avaliacao_id" INTEGER,
+    "agendamentos_id" INTEGER,
+    "servicos_id" INTEGER
+
   );`;
 
 const ADD_USUARIOS_DATA = `
-INSERT INTO USUARIOS (id, nome, idade, data_nascimento, cpf, telefone, email, senha)
+INSERT INTO USUARIOS (id, nome, idade, data_nascimento, cpf, telefone, email, senha, treino_id, avaliacao_id, agendamentos_id, servicos_id)
 VALUES 
-    (1, 'Mauricio Oliveira', '18', '27/03/2003', '00000000000', '(99) 9999-9999', 'mauricio@gmail.com', '12345678')
+    (1, 'Mauricio Oliveira', '18', '27/03/2003', '00000000000', '(99) 9999-9999', 'mauricio@gmail.com', '12345678', 1, 1, 1, 1)
 `
 
 function criaTabelaUsr() {

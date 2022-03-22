@@ -26,7 +26,7 @@ const usuariosoModel = new UsuariosModel(db)
 
     app.post('/usuarios', async (req, res)=>{
         const body = req.body   
-
+        
         try {
           const usuarioInserido = await usuariosoModel.insereUsuario(body)
            res.status(201).json({"mensagem": usuarioInserido, "Usuario": body, "erro": false})

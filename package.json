@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Mauriciiow/gym-api#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.3",
     "sqlite3": "^5.0.2"
   },
@@ -27,5 +28,8 @@
     "jest": "^27.5.1",
     "nodemon": "^2.0.15",
     "supertest": "^6.2.2"
+  },
+  "engines": {
+    "node": "16.x"
   }
 }

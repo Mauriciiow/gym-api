@@ -1,5 +1,5 @@
 class UsuariosSchema{
-    constructor(nome, idade, data_nascimento, cpf, telefone, email, senha){
+    constructor(nome, idade, data_nascimento, cpf, telefone, email, senha, treino_id, avaliacao_id, agendamentos_id, servicos_id){
         this.nome = this._validaNome(nome)
         this.idade = this._validaIdade(idade)
         this.data_nascimento = this._validaDataNull(data_nascimento)
@@ -7,6 +7,11 @@ class UsuariosSchema{
         this.telefone = this._validaTel(telefone)
         this.email = this._validaEmail(email)
         this.senha = this._validaSenha(senha)
+        this.treino_id = treino_id
+        this.avaliacao_id = avaliacao_id
+        this.agendamentos_id = agendamentos_id
+        this.servicos_id = servicos_id
+
     }
 
   
