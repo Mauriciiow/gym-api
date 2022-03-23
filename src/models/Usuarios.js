@@ -26,7 +26,7 @@ class UsuariosModel{
   insereUsuario = async (usuario)=>{
     try {
       const usuarioNovo = new UsuariosSchema(usuario.nome, usuario.idade, usuario.data_nascimento, usuario.cpf, usuario.telefone, usuario.email, usuario.senha, 
-        usuario.treino_id, usuario.avaliacao_id, usuario.agendamentos_id, usuario.servicos_id)
+        usuario.instrutor)
       return await this.dao.adicionaUsuario(usuarioNovo)
     } catch (error) {
       throw error
@@ -37,7 +37,7 @@ class UsuariosModel{
     try {
       await this._verificaId(id)
       const usuarioAtualizado = new UsuariosSchema(usuario.nome, usuario.idade, usuario.data_nascimento, usuario.cpf, usuario.telefone, usuario.email, usuario.senha,
-        usuario.treino_id, usuario.avaliacao_id, usuario.agendamentos_id, usuario.servicos_id)
+        usuario.instrutor)
       return await this.dao.modificaUsuario(usuarioAtualizado, id)
     } catch (error) {
       throw error

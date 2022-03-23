@@ -29,8 +29,8 @@ class UsuariosDAO{
 
     adicionaUsuario = (usuario)=>{
         return new Promise((resolve, reject)=>{
-            this.db.run('INSERT INTO USUARIOS (nome, idade, data_nascimento, cpf, telefone, email, senha, treino_id, avaliacao_id, agendamentos_id, servicos_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', usuario.nome, usuario.idade, usuario.data_nascimento, usuario.cpf, usuario.telefone, usuario.email, 
-            usuario.senha, usuario.treino_id, usuario.avaliacao_id, usuario.agendamentos_id, usuario.servicos_id, (err)=>{
+            this.db.run('INSERT INTO USUARIOS (nome, idade, data_nascimento, cpf, telefone, email, senha, instrutor) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', usuario.nome, usuario.idade, usuario.data_nascimento, usuario.cpf, usuario.telefone, usuario.email, 
+            usuario.senha, usuario.instrutor, (err)=>{
                 if(err){
                     reject (err)
                 } else {
@@ -42,8 +42,8 @@ class UsuariosDAO{
 
     modificaUsuario = (usuario, id)=>{
         return new Promise((resolve, reject)=>{
-            this.db.run('UPDATE USUARIOS SET nome=?, idade=?, data_nascimento=?, cpf=?, telefone=?, email=?, senha=?, treino_id=?, avaliacao_id=?, agendamentos_id=?, servicos_id=? WHERE id=?', usuario.nome, usuario.idade, usuario.data_nascimento, usuario.cpf, usuario.telefone, usuario.email,
-            usuario.senha, usuario.treino_id, usuario.avaliacao_id, usuario.agendamentos_id, usuario.servicos_id, id, (err)=>{
+            this.db.run('UPDATE USUARIOS SET nome=?, idade=?, data_nascimento=?, cpf=?, telefone=?, email=?, senha=?, instrutor=? WHERE id=?', usuario.nome, usuario.idade, usuario.data_nascimento, usuario.cpf, usuario.telefone, usuario.email,
+            usuario.senha, usuario.instrutor, id, (err)=>{
                 if(err){ 
                     reject (err)
                 } else {
