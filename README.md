@@ -62,7 +62,8 @@ Schema da resposta
      "cpf": <String>,
      "telefone": <String>,
      "email": <String>,
-     "senha": <String>
+     "senha": <String>,
+     "instrutor": <Boleano>
     }
   ],
    "erro": <Boleano>
@@ -84,7 +85,8 @@ Schema da resposta
    "cpf": <String>,
    "telefone": <String>,
    "email": <String>,
-   "senha": <String>
+   "senha": <String>,
+   "instrutor": <Boleano>
  },
   "erro": <Boleano>
 }
@@ -102,7 +104,8 @@ Schema da requisição
    "cpf": <String>,
    "telefone": <String>,
    "email": <String>,
-   "senha": <String>
+   "senha": <String>,
+   "instrutor": <Boleano>
 }
 ```
 
@@ -118,7 +121,8 @@ Schema da resposta
    "cpf": <String>,
    "telefone": <String>,
    "email": <String>,
-   "senha": <String>
+   "senha": <String>,
+   "instrutor": <Boleano>
  },
   "erro": <Boleano>
 }
@@ -136,7 +140,8 @@ Schema da requisição
    "cpf": <String>,
    "telefone": <String>,
    "email": <String>,
-   "senha": <String>
+   "senha": <String>,
+   "instrutor": <Boleano>
 }
 ```
 
@@ -152,7 +157,8 @@ Schema da resposta
    "cpf": <String>,
    "telefone": <String>,
    "email": <String>,
-   "senha": <String>
+   "senha": <String>,
+   "instrutor": <Boleano>
  },
   "erro": <Boleano>
 }
