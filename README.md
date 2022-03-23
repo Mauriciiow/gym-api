@@ -4,7 +4,7 @@ Projeto Módulo 4 Resilia - API REST para uma academia utilizando a entidade Usu
 
 Projeto realizado utilizando o [Node.js](https://nodejs.org/en/) com framework [Express](https://expressjs.com).
 
-# Deploy
+## Deploy
 Deploy do projeto realizado pelo heroku, pode acessar pelo link abaixo:
 - [https://gym-api-resilia.herokuapp.com](https://gym-api-resilia.herokuapp.com)
 
